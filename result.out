@@ -1,0 +1,136 @@
+0 s w buffer1: V
+1 s w buffer1: i
+2 s w buffer1: s
+3 s w buffer1: i
+4 s w buffer1: t
+5 s w buffer1:  
+6 s w buffer1: w
+7 s w buffer1: w
+8 s w buffer1: w
+9 s w buffer1: .
+		9 s r buffer1: V
+		10 s r buffer1: i
+10 s w buffer0: a
+		11 s r buffer1: s
+11 s w buffer0: c
+		12 s r buffer1: i
+12 s w buffer0: c
+		13 s r buffer1: t
+13 s w buffer0: e
+		14 s r buffer1:  
+14 s w buffer0: l
+		15 s r buffer1: w
+15 s w buffer0: l
+		16 s r buffer1: w
+16 s w buffer0: e
+		17 s r buffer1: w
+17 s w buffer0: r
+		18 s r buffer1: .
+18 s w buffer0: a
+19 s w buffer0: .
+		19 s r buffer0: a
+		20 s r buffer0: c
+20 s w buffer1: o
+		21 s r buffer0: c
+21 s w buffer1: r
+		22 s r buffer0: e
+22 s w buffer1: g
+		23 s r buffer0: l
+23 s w buffer1:  
+		24 s r buffer0: l
+24 s w buffer1: a
+		25 s r buffer0: e
+25 s w buffer1: n
+		26 s r buffer0: r
+26 s w buffer1: d
+		27 s r buffer0: a
+27 s w buffer1:  
+		28 s r buffer0: .
+28 s w buffer1: s
+29 s w buffer1: e
+		29 s r buffer1: o
+		30 s r buffer1: r
+30 s w buffer0: e
+		31 s r buffer1: g
+31 s w buffer0:  
+		32 s r buffer1:  
+32 s w buffer0: w
+		33 s r buffer1: a
+33 s w buffer0: h
+		34 s r buffer1: n
+34 s w buffer0: a
+		35 s r buffer1: d
+35 s w buffer0: t
+		36 s r buffer1:  
+36 s w buffer0:  
+		37 s r buffer1: s
+37 s w buffer0: S
+		38 s r buffer1: e
+38 s w buffer0: y
+39 s w buffer0: s
+		39 s r buffer0: e
+		40 s r buffer0:  
+40 s w buffer1: t
+		41 s r buffer0: w
+41 s w buffer1: e
+		42 s r buffer0: h
+42 s w buffer1: m
+		43 s r buffer0: a
+43 s w buffer1: C
+		44 s r buffer0: t
+44 s w buffer1:  
+		45 s r buffer0:  
+45 s w buffer1: c
+		46 s r buffer0: S
+46 s w buffer1: a
+		47 s r buffer0: y
+47 s w buffer1: n
+		48 s r buffer0: s
+48 s w buffer1:  
+49 s w buffer1: d
+		49 s r buffer1: t
+		50 s r buffer1: e
+50 s w buffer0: o
+		51 s r buffer1: m
+51 s w buffer0:  
+		52 s r buffer1: C
+52 s w buffer0: f
+		53 s r buffer1:  
+53 s w buffer0: o
+		54 s r buffer1: c
+54 s w buffer0: r
+		55 s r buffer1: a
+55 s w buffer0:  
+		56 s r buffer1: n
+56 s w buffer0: y
+		57 s r buffer1:  
+57 s w buffer0: o
+		58 s r buffer1: d
+58 s w buffer0: u
+59 s w buffer0:  
+		59 s r buffer0: o
+		60 s r buffer0:  
+60 s w buffer1: t
+		61 s r buffer0: f
+61 s w buffer1: o
+		62 s r buffer0: o
+62 s w buffer1: d
+		63 s r buffer0: r
+63 s w buffer1: a
+		64 s r buffer0:  
+64 s w buffer1: y
+		65 s r buffer0: y
+65 s w buffer1: !
+		66 s r buffer0: o
+66 s w buffer1: 
+
+		67 s r buffer0: u
+		68 s r buffer0:  
+		69 s r buffer1: t
+		70 s r buffer1: o
+		71 s r buffer1: d
+		72 s r buffer1: a
+		73 s r buffer1: y
+		74 s r buffer1: !
+		75 s r buffer1: 
+
