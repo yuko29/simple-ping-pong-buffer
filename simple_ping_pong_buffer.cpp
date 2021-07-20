@@ -19,7 +19,7 @@
 
 /*****************************************************************************
 
-  simple_fifo.cpp -- Simple SystemC 2.0 producer/consumer example.
+  simple_ppb.cpp -- Simple SystemC 2.0 producer/consumer example.
 
                      From "An Introduction to System Level Modeling in
                      SystemC 2.0". By Stuart Swan, Cadence Design Systems.
@@ -56,10 +56,10 @@ class read_if : virtual public sc_interface
      //virtual int num_available() = 0;
 };
 
-class fifo : public sc_channel, public write_if, public read_if
+class ppb : public sc_channel, public write_if, public read_if
 {
    public:
-     fifo(sc_module_name name) : sc_channel(name), read_idx(0), write_idx(0), buffer_ptr(0), read_buffer_num(0), write_buffer_num(0) {
+     ppb(sc_module_name name) : sc_channel(name), read_idx(0), write_idx(0), buffer_ptr(0), read_buffer_num(0), write_buffer_num(0) {
        end = false;
        to_read_buffer = buffer0;
        to_write_buffer = buffer1;
@@ -67,14 +67,15 @@ class fifo : public sc_channel, public write_if, public read_if
 
      void write(char c) {
 
-       // write operation
        if(c == EOF)
        {
+         // set the flag `end` on for consumer to read the rest of the content in the buffer
          end = true;
        }
        else
        {
 
+        // write operation
         to_write_buffer[write_idx] = c;
         ++ write_idx;
         ++ write_buffer_num;
@@ -94,11 +95,15 @@ class fifo : public sc_channel, public write_if, public read_if
      }
 
      void read(char &c){
-       // if to_read_buffer has been consumed -> swap the two buffer
+       
+       // if to_read_buffer has been consumed (or empty)
        if(read_buffer_num == 0)
        {
-         if(!end)
-         wait(swap_event);
+         // if `end` flag is off, it means the producer still keep writting data to the other buffer
+         // we need to wait for the producer to fill the other buffer or end its writting
+         if(!end) wait(swap_event);
+
+         // swap the two buffer
          swap_buffer();
          read_idx = 0;
          swap_event.notify();
@@ -110,6 +115,7 @@ class fifo : public sc_channel, public write_if, public read_if
        -- read_buffer_num;
        cout << "\t\t" << sc_time_stamp() <<  " r buffer" << buffer_ptr << ": " << c << endl;
        
+       // if the content in both buffers are read then set the `end` flag off
        if(write_buffer_num == 0 && read_buffer_num == 0) end = false;
      }
 
@@ -172,6 +178,7 @@ class producer : public sc_module
          out->write(*str++);
          wait(1, SC_SEC);
        }
+         // After writting the content to the ping pong buffer, send EOF to it notice that the writting is end
          out->write(EOF);
 
      }
@@ -203,19 +210,19 @@ class consumer : public sc_module
 class top : public sc_module
 {
    public:
-     fifo *fifo_inst;
+     ppb *ppb_inst;
      producer *prod_inst;
      consumer *cons_inst;
 
      top(sc_module_name name) : sc_module(name)
      {
-       fifo_inst = new fifo("Fifo1");
+       ppb_inst = new ppb("Ppb1");
 
        prod_inst = new producer("Producer1");
-       prod_inst->out(*fifo_inst);
+       prod_inst->out(*ppb_inst);
 
        cons_inst = new consumer("Consumer1");
-       cons_inst->in(*fifo_inst);
+       cons_inst->in(*ppb_inst);
      }
 };
 
